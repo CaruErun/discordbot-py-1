@@ -32,13 +32,10 @@ async def on_message(message):
         await message.channel.send('Hello!')
 
     if message.content.startswith(f'{PREFIX}start'):
-        global startTime
         startTime = datetime.now()
         await message.channel.send("시작시간 : "+startTime.strftime("%H시 %M분 %S초"))
         
     if message.content.startswith(f'{PREFIX}end'):
-        global endTime
-        global startTime
         endTime = datetime.now()
         if(startTime=="") :
             await message.channel.send('#start를 먼저 진행해주세요')
